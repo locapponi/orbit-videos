@@ -1,0 +1,130 @@
+{
+  "secoes": [
+    { "id": "producao", "titulo": "Em produção" },
+    { "id": "produto", "titulo": "Produto / sistema" },
+    { "id": "lancamentos", "titulo": "Lançamentos e novidades" },
+    { "id": "teasers", "titulo": "Teasers" },
+    { "id": "verticais", "titulo": "Verticais (redes)" }
+  ],
+  "videos": [
+    {
+      "titulo": "Studio Eixo",
+      "arquivo": "videos/orbit-studio-eixo_narracao.mp4",
+      "secao": "producao",
+      "audio": "narrado",
+      "formato": "16:9",
+      "emProducao": true
+    },
+    {
+      "titulo": "Studio Eixo",
+      "arquivo": "videos/orbit-studio-eixo.mp4",
+      "secao": "producao",
+      "audio": "sem voz",
+      "formato": "16:9",
+      "emProducao": true
+    },
+    {
+      "titulo": "Orbit, o sistema",
+      "arquivo": "videos/orbit-sistema-v3_narracao.mp4",
+      "poster": "posters/orbit-sistema-v3_narracao.jpg",
+      "secao": "produto",
+      "audio": "narrado",
+      "data": "2026-11-18",
+      "duracao": "1:34",
+      "formato": "16:9"
+    },
+    {
+      "titulo": "Orbit, o sistema",
+      "arquivo": "videos/orbit-sistema-v3.mp4",
+      "poster": "posters/orbit-sistema-v3.jpg",
+      "secao": "produto",
+      "audio": "sem voz",
+      "data": "2026-11-18",
+      "duracao": "1:34",
+      "formato": "16:9"
+    },
+    {
+      "titulo": "App Store · cabeçalho",
+      "arquivo": "videos/orbit-appstore-cabecalho.mp4",
+      "poster": "posters/orbit-appstore-cabecalho.jpg",
+      "secao": "produto",
+      "audio": "sem voz",
+      "data": "2026-11-13",
+      "duracao": "0:29",
+      "formato": "21:9"
+    },
+    {
+      "titulo": "App Store · resultado de busca",
+      "arquivo": "videos/orbit-appstore-busca.mp4",
+      "poster": "posters/orbit-appstore-busca.jpg",
+      "secao": "produto",
+      "audio": "sem voz",
+      "data": "2026-11-13",
+      "duracao": "0:07",
+      "formato": "3:2"
+    },
+    {
+      "titulo": "Temas e Plugins",
+      "arquivo": "videos/orbit-temas-plugins_narracao.mp4",
+      "poster": "posters/orbit-temas-plugins_narracao.jpg",
+      "secao": "lancamentos",
+      "audio": "narrado",
+      "data": "2026-11-17",
+      "duracao": "0:50",
+      "formato": "16:9",
+      "credito": "Música: 'With These Hands' by Scott Buckley (CC BY 4.0) · scottbuckley.com.au"
+    },
+    {
+      "titulo": "Temas e Plugins",
+      "arquivo": "videos/orbit-temas-plugins.mp4",
+      "poster": "posters/orbit-temas-plugins.jpg",
+      "secao": "lancamentos",
+      "audio": "sem voz",
+      "data": "2026-11-17",
+      "duracao": "0:50",
+      "formato": "16:9",
+      "credito": "Música: 'With These Hands' by Scott Buckley (CC BY 4.0) · scottbuckley.com.au"
+    },
+    {
+      "titulo": "Orbit, do seu jeito",
+      "arquivo": "videos/orbit-do-seu-jeito.mp4",
+      "poster": "posters/orbit-do-seu-jeito.jpg",
+      "secao": "lancamentos",
+      "audio": "sem voz",
+      "data": "2026-11-17",
+      "duracao": "0:40",
+      "formato": "16:9",
+      "credito": "Música: 'With These Hands' by Scott Buckley (CC BY 4.0) · scottbuckley.com.au"
+    },
+    {
+      "titulo": "Teaser · Quem responde seu cliente",
+      "arquivo": "videos/orbit-teaser-dia_16x9.mp4",
+      "poster": "posters/orbit-teaser-dia_16x9.jpg",
+      "secao": "teasers",
+      "audio": "sem voz",
+      "data": "2026-11-03",
+      "duracao": "0:38",
+      "formato": "16:9"
+    },
+    {
+      "titulo": "Teaser · Ata de reunião",
+      "arquivo": "videos/orbit-teaser-ata.mp4",
+      "poster": "posters/orbit-teaser-ata.jpg",
+      "secao": "teasers",
+      "audio": "sem voz",
+      "data": "2026-11-10",
+      "duracao": "0:31",
+      "formato": "16:9"
+    },
+    {
+      "titulo": "Teaser · Quem responde seu cliente",
+      "arquivo": "videos/orbit-teaser-dia_9x16.mp4",
+      "poster": "posters/orbit-teaser-dia_9x16.jpg",
+      "secao": "verticais",
+      "audio": "sem voz",
+      "data": "2026-11-03",
+      "duracao": "0:38",
+      "formato": "9:16"
+    }
+  ]
+}
