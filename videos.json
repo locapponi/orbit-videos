@@ -8,20 +8,24 @@
   ],
   "videos": [
     {
-      "titulo": "Studio Eixo",
+      "titulo": "Orbit · Studio Eixo (v4)",
       "arquivo": "videos/orbit-studio-eixo_narracao.mp4",
-      "secao": "producao",
+      "poster": "posters/orbit-studio-eixo_narracao.jpg",
+      "secao": "produto",
       "audio": "narrado",
-      "formato": "16:9",
-      "emProducao": true
+      "data": "2026-11-19",
+      "duracao": "1:06",
+      "formato": "16:9"
     },
     {
-      "titulo": "Studio Eixo",
+      "titulo": "Orbit · Studio Eixo (v4)",
       "arquivo": "videos/orbit-studio-eixo.mp4",
-      "secao": "producao",
+      "poster": "posters/orbit-studio-eixo.jpg",
+      "secao": "produto",
       "audio": "sem voz",
-      "formato": "16:9",
-      "emProducao": true
+      "data": "2026-11-19",
+      "duracao": "1:06",
+      "formato": "16:9"
     },
     {
       "titulo": "Orbit, o sistema",
