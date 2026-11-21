@@ -1,10 +1,25 @@
 {
   "secoes": [
-    { "id": "producao", "titulo": "Em produção" },
-    { "id": "produto", "titulo": "Produto / sistema" },
-    { "id": "lancamentos", "titulo": "Lançamentos e novidades" },
-    { "id": "teasers", "titulo": "Teasers" },
-    { "id": "verticais", "titulo": "Verticais (redes)" }
+    {
+      "id": "producao",
+      "titulo": "Em produção"
+    },
+    {
+      "id": "produto",
+      "titulo": "Produto / sistema"
+    },
+    {
+      "id": "lancamentos",
+      "titulo": "Lançamentos e novidades"
+    },
+    {
+      "id": "teasers",
+      "titulo": "Teasers"
+    },
+    {
+      "id": "verticais",
+      "titulo": "Verticais (redes)"
+    }
   ],
   "videos": [
     {
@@ -66,6 +81,28 @@
       "data": "2026-11-13",
       "duracao": "0:07",
       "formato": "3:2"
+    },
+    {
+      "titulo": "Filme conceitual · legenda",
+      "arquivo": "videos/orbit-filme-conceitual_legenda.mp4",
+      "poster": "posters/orbit-filme-conceitual_legenda.jpg",
+      "secao": "lancamentos",
+      "audio": "narrado",
+      "data": "2026-11-20",
+      "duracao": "1:06",
+      "formato": "16:9",
+      "credito": "Música: 'With These Hands' by Scott Buckley - released under CC-BY 4.0. www.scottbuckley.com.au"
+    },
+    {
+      "titulo": "Filme conceitual · sem texto",
+      "arquivo": "videos/orbit-filme-conceitual.mp4",
+      "poster": "posters/orbit-filme-conceitual.jpg",
+      "secao": "lancamentos",
+      "audio": "narrado",
+      "data": "2026-11-20",
+      "duracao": "1:06",
+      "formato": "16:9",
+      "credito": "Música: 'With These Hands' by Scott Buckley - released under CC-BY 4.0. www.scottbuckley.com.au"
     },
     {
       "titulo": "Temas e Plugins",
