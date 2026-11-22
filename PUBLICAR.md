@@ -6,35 +6,29 @@ O repositório é **público**: nada de nomes de clientes reais, marcas de parce
 
 ## Como a página funciona
 
-- `index.html` não lista vídeos: ele lê `videos.json` e monta as seções e os cartões. **Para adicionar ou tirar um vídeo, mexa só no `videos.json`** (e nos arquivos em `videos/` e `posters/`).
+- `index.html` não lista vídeos: ele lê `videos.json`. **Para adicionar ou tirar um vídeo, mexa só no `videos.json`** (e nos arquivos em `videos/` e `posters/`).
+- A página mostra no topo a obra mais recente (pela `data`), depois uma barra de seções fixa e, em cada seção, uma linha por obra. Tocar abre o player em tela cheia, com as versões em botões, setas para o vídeo anterior/próximo e link direto `#id` (dá para mandar `…/orbit-videos/#institucional`).
 - `videos.json` tem duas listas:
-  - `secoes`: ordem e nome das seções (`producao`, `produto`, `lancamentos`, `teasers`, `verticais`). Seção sem vídeo não aparece.
-  - `videos`: um objeto por vídeo, na ordem em que aparece dentro da seção:
+  - `secoes`: ordem e nome das seções (`marca`, `produto`, `lancamentos`, `teasers`). Seção sem obra não aparece.
+  - `obras`: um objeto por filme, com as versões dele dentro (narrado / sem voz, com legenda / sem legenda, horizontal / vertical):
     ```json
     {
+      "id": "temas-plugins",            // vira o link #temas-plugins; sem espaço nem acento
       "titulo": "Temas e Plugins",
-      "arquivo": "videos/orbit-temas-plugins_narracao.mp4",
-      "poster": "posters/orbit-temas-plugins_narracao.jpg",
+      "resumo": "…",                     // opcional, uma frase
       "secao": "lancamentos",
-      "audio": "narrado",          // "narrado" ou "sem voz" (vira o selo)
-      "data": "2026-11-17",        // AAAA-MM-DD
+      "data": "2026-11-17",              // AAAA-MM-DD; a mais recente vai para o destaque
       "duracao": "0:50",
-      "formato": "16:9",           // 16:9, 9:16, 4:5, 3:2, 21:9… (define a proporção do player)
-      "credito": "Música: …"       // opcional (obrigatório para músicas CC BY)
+      "formato": "16:9",                 // 16:9, 9:16, 4:3, 3:2, 21:9… (proporção do player)
+      "audio": "narrado",                // "narrado" ou "sem voz"
+      "credito": "Música: …",            // opcional (obrigatório para músicas CC BY)
+      "versoes": [
+        { "rotulo": "Narrado", "audio": "narrado", "arquivo": "videos/x_narracao.mp4", "poster": "posters/x_narracao.jpg" },
+        { "rotulo": "Sem voz", "audio": "sem voz", "arquivo": "videos/x.mp4", "poster": "posters/x.jpg" }
+      ]
     }
     ```
-  - `"emProducao": true` faz a página checar o arquivo (HEAD) e mostrar **"Em produção — volte mais tarde"** enquanto ele não existir. Quando o arquivo subir com o nome exato, ele aparece sozinho.
-
-## Studio Eixo (em produção)
-
-Os dois cartões já estão no `videos.json` com `emProducao: true`. Basta subir os arquivos com estes nomes exatos:
-
-| Arquivo | Cartão |
-|---|---|
-| `videos/orbit-studio-eixo_narracao.mp4` | Studio Eixo · narrado |
-| `videos/orbit-studio-eixo.mp4` | Studio Eixo · sem voz |
-
-Depois de publicado, dá para tirar o `emProducao`, pôr `poster`, `data`, `duracao` e mover para outra seção.
+  - Uma versão pode sobrescrever `audio`, `formato` e `duracao` da obra (ex.: o teaser vertical 9:16). A primeira versão é a que abre e dá a capa da lista.
 
 ## Critério do que entra
 
@@ -63,7 +57,7 @@ Só a versão final/aprovada de cada vídeo (narrada e sem voz quando houver as 
    $FF -y -ss $D -i videos/NOME.mp4 -frames:v 1 -vf "scale=960:-2" -q:v 4 posters/NOME.jpg
    ```
    Abrir o JPG e conferir que o quadro diz algo (se cair numa transição, trocar o tempo).
-5. Adicionar a entrada no `videos.json` (modelo acima). Validar:
+5. Adicionar a versão (ou a obra nova) no `videos.json` (modelo acima). Validar:
    ```bash
    python3 -c "import json;json.load(open('videos.json'))" && echo ok
    ```

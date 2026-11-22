@@ -4,126 +4,295 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#070b16">
 <title>Orbit · vídeos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#000; --card:#111318; --line:#1f232c; --text:#f2f4f8; --muted:#9aa3b2; --blue:#4279EE; --chip:#1a1e27; }
-  * { box-sizing:border-box; }
-  html,body { margin:0; background:var(--bg); color:var(--text); }
-  html { scroll-behavior:smooth; scroll-padding-top:64px; }
-  body { font-family:Inter, system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
-  main { max-width:720px; margin:0 auto; padding:28px 16px 48px; padding-left:max(16px, env(safe-area-inset-left)); padding-right:max(16px, env(safe-area-inset-right)); }
-  h1 { font-size:28px; font-weight:700; letter-spacing:-.02em; margin:0 0 4px; }
-  h1 span { color:var(--blue); }
-  .sub { color:var(--muted); font-size:14px; margin:0 0 16px; }
-  nav { position:sticky; top:0; z-index:5; background:var(--bg); margin:0 -16px; padding:10px 16px; display:flex; gap:8px; overflow-x:auto; scrollbar-width:none; border-bottom:1px solid var(--line); }
+  :root {
+    --bg:#070b16; --aura:rgba(66,121,238,.22); --card:#0f1524; --card2:#141c2f; --line:#1f2940;
+    --text:#f2f4f8; --muted:#97a2b8; --blue:#4279EE; --blue2:#6f9cff; --chip:#141c2f;
+  }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body { margin:0; color:var(--text); background:var(--bg); }
+  body {
+    font-family:Inter, system-ui, sans-serif; -webkit-font-smoothing:antialiased;
+    background:radial-gradient(120% 60% at 50% -10%, var(--aura), transparent 70%) no-repeat, var(--bg);
+    min-height:100svh;
+  }
+  body.travado { overflow:hidden; }
+  button { font:inherit; color:inherit; }
+  main { max-width:760px; margin:0 auto; padding:24px 16px 56px; padding-left:max(16px, env(safe-area-inset-left)); padding-right:max(16px, env(safe-area-inset-right)); }
+  header h1 { font-size:26px; font-weight:700; letter-spacing:-.02em; margin:0; }
+  header h1 span { color:var(--blue); }
+  header p { color:var(--muted); font-size:14px; margin:4px 0 18px; }
+
+  /* destaque: o mais recente */
+  .destaque { display:block; width:100%; text-align:left; padding:0; border:1px solid var(--line); border-radius:18px; overflow:hidden; background:var(--card); cursor:pointer; }
+  .destaque .capa { position:relative; aspect-ratio:16/9; background:#000; }
+  .destaque img { width:100%; height:100%; object-fit:cover; display:block; }
+  .destaque .play { position:absolute; inset:auto auto 14px 14px; display:flex; align-items:center; gap:8px; background:var(--blue); color:#fff; font-weight:600; font-size:14px; padding:9px 14px 9px 11px; border-radius:999px; box-shadow:0 6px 24px rgba(0,0,0,.35); }
+  .destaque .novo { position:absolute; top:12px; left:12px; background:rgba(7,11,22,.75); backdrop-filter:blur(6px); color:var(--blue2); font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:5px 9px; border-radius:999px; }
+  .destaque .txt { padding:14px 16px 16px; }
+  .destaque h2 { font-size:19px; margin:0 0 6px; letter-spacing:-.01em; }
+  .destaque p { margin:0 0 10px; color:var(--muted); font-size:14px; line-height:1.45; }
+
+  /* navegação por seção */
+  nav { position:sticky; top:0; z-index:5; margin:20px -16px 0; padding:10px 16px; display:flex; gap:8px; overflow-x:auto; scrollbar-width:none;
+        background:rgba(7,11,22,.88); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
   nav::-webkit-scrollbar { display:none; }
-  nav a { flex:none; color:var(--text); text-decoration:none; font-size:13px; font-weight:500; background:var(--chip); border:1px solid var(--line); border-radius:999px; padding:7px 12px; }
-  nav a:active { background:var(--blue); }
-  h2 { font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:32px 0 12px; }
-  h2 .n { color:var(--blue); margin-left:6px; }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; margin-bottom:16px; }
-  .info { padding:12px 16px 14px; }
-  .card h3 { font-size:16px; font-weight:600; margin:0 0 8px; line-height:1.3; }
-  .meta { display:flex; flex-wrap:wrap; gap:6px; align-items:center; font-size:12px; color:var(--muted); }
-  .meta span { background:var(--chip); border:1px solid var(--line); border-radius:999px; padding:3px 9px; }
+  nav a { flex:none; color:var(--muted); text-decoration:none; font-size:13px; font-weight:500; background:var(--chip); border:1px solid var(--line); border-radius:999px; padding:7px 12px; transition:background .2s, color .2s; }
+  nav a b { font-weight:600; margin-left:4px; color:var(--blue2); }
+  nav a.ativo { background:var(--blue); border-color:var(--blue); color:#fff; }
+  nav a.ativo b { color:#fff; }
+
+  section { scroll-margin-top:60px; }
+  h3.sec { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.09em; color:var(--muted); margin:28px 0 10px; }
+
+  /* linhas compactas */
+  .linha { display:flex; gap:12px; align-items:center; width:100%; text-align:left; padding:8px; margin-bottom:8px; background:var(--card); border:1px solid var(--line); border-radius:14px; cursor:pointer; transition:background .15s; }
+  .linha:hover, .linha:focus-visible { background:var(--card2); outline:none; }
+  .linha:focus-visible { box-shadow:0 0 0 2px var(--blue); }
+  .mini { position:relative; flex:none; width:128px; aspect-ratio:16/9; border-radius:9px; overflow:hidden; background:#000; }
+  .mini img { width:100%; height:100%; object-fit:cover; display:block; }
+  .mini .dur { position:absolute; right:5px; bottom:5px; background:rgba(0,0,0,.72); font-size:11px; font-weight:600; padding:2px 5px; border-radius:5px; }
+  .linha .t { min-width:0; flex:1; }
+  .linha h4 { margin:0 0 5px; font-size:15px; font-weight:600; line-height:1.3; }
+  .linha .seta { flex:none; color:var(--muted); padding-right:4px; }
+
+  .meta { display:flex; flex-wrap:wrap; gap:5px; font-size:12px; color:var(--muted); }
+  .meta span { background:var(--chip); border:1px solid var(--line); border-radius:999px; padding:2px 8px; white-space:nowrap; }
   .meta .selo { background:var(--blue); border-color:var(--blue); color:#fff; font-weight:600; }
-  .meta .selo.mudo { background:var(--chip); border-color:#3a4252; color:var(--text); }
-  .credito { margin:8px 0 0; font-size:11px; color:var(--muted); line-height:1.4; }
-  .palco { background:#000; display:flex; justify-content:center; }
-  video { display:block; width:100%; height:auto; background:#000; }
-  .vertical video, .vertical .aviso { width:min(100%, calc(78svh * 9 / 16)); }
-  .aviso { width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; text-align:center; padding:16px; color:var(--muted); font-size:15px; background:#0b0d12; }
-  .aviso b { color:var(--blue); font-weight:600; font-size:17px; }
-  .pulso { width:10px; height:10px; border-radius:50%; background:var(--blue); animation:p 1.6s ease-in-out infinite; }
-  @keyframes p { 50% { opacity:.3; } }
-  @media (prefers-reduced-motion: reduce) { .pulso { animation:none; } html { scroll-behavior:auto; } }
+
+  /* player em tela cheia */
+  .tela { position:fixed; inset:0; z-index:20; display:none; flex-direction:column; background:radial-gradient(110% 55% at 50% 0%, var(--aura), transparent 70%) no-repeat, var(--bg); }
+  .tela.aberta { display:flex; }
+  .topo { display:flex; align-items:center; gap:8px; padding:10px 8px; padding-top:max(10px, env(safe-area-inset-top)); padding-left:max(8px, env(safe-area-inset-left)); padding-right:max(8px, env(safe-area-inset-right)); }
+  .topo h2 { flex:1; min-width:0; margin:0; font-size:16px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .ic { flex:none; width:42px; height:42px; display:grid; place-items:center; border-radius:50%; background:var(--chip); border:1px solid var(--line); cursor:pointer; }
+  .ic:disabled { opacity:.35; cursor:default; }
+  .corpo { flex:1; overflow-y:auto; padding:0 16px 24px; padding-bottom:max(24px, env(safe-area-inset-bottom)); }
+  .palco { display:flex; justify-content:center; margin:4px auto 0; max-width:1100px; }
+  .palco video { display:block; background:#000; border-radius:12px; max-width:100%; }
+  .detalhes { max-width:760px; margin:14px auto 0; }
+  .versoes { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px; }
+  .versoes button { border:1px solid var(--line); background:var(--chip); color:var(--muted); border-radius:999px; padding:8px 14px; font-size:13px; font-weight:500; cursor:pointer; }
+  .versoes button[aria-pressed="true"] { background:var(--blue); border-color:var(--blue); color:#fff; }
+  .detalhes p.resumo { color:var(--muted); font-size:14px; line-height:1.5; margin:12px 0 0; }
+  .credito { margin:12px 0 0; font-size:11px; color:var(--muted); line-height:1.45; }
+  .baixar { display:inline-block; margin-top:14px; font-size:13px; color:var(--blue2); text-decoration:none; }
+
   .erro { color:var(--muted); font-size:14px; }
   footer { color:var(--muted); font-size:12px; margin-top:40px; text-align:center; }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; } }
 </style>
 </head>
 <body>
 <main>
-  <h1>Orbit <span>·</span> vídeos</h1>
-  <p class="sub">Toque no vídeo para assistir. Use tela cheia para ver melhor.</p>
+  <header>
+    <h1>Orbit <span>·</span> vídeos</h1>
+    <p>Toque num vídeo para abrir. Dentro dele, escolha a versão.</p>
+  </header>
+  <div id="destaque"></div>
   <nav id="nav" aria-label="Seções"></nav>
   <div id="lista"><p class="erro">Carregando vídeos…</p></div>
   <noscript><p class="erro">Ative o JavaScript para ver a lista de vídeos.</p></noscript>
   <footer>Orbit · Solanis</footer>
 </main>
+
+<div class="tela" id="tela" role="dialog" aria-modal="true" aria-labelledby="tela-titulo">
+  <div class="topo">
+    <button class="ic" id="fechar" aria-label="Voltar para a lista">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <h2 id="tela-titulo"></h2>
+    <button class="ic" id="ant" aria-label="Vídeo anterior">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+    <button class="ic" id="prox" aria-label="Próximo vídeo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+  </div>
+  <div class="corpo">
+    <div class="palco"><video id="video" controls playsinline preload="metadata"></video></div>
+    <div class="detalhes">
+      <div class="versoes" id="versoes" role="group" aria-label="Versões"></div>
+      <div class="meta" id="tela-meta"></div>
+      <p class="resumo" id="tela-resumo"></p>
+      <p class="credito" id="tela-credito"></p>
+      <a class="baixar" id="baixar" download>Baixar esta versão</a>
+    </div>
+  </div>
+</div>
+
 <script>
 (function () {
   var MESES = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+  var obras = [], atual = null, versaoAtual = 0;
+  var tela = document.getElementById('tela'), video = document.getElementById('video');
+
   function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
   function data(iso) { if (!iso) return ''; var p = iso.split('-'); return +p[2] + ' ' + MESES[+p[1] - 1] + ' ' + p[0]; }
-  function proporcao(f) { var p = (f || '16:9').split(':'); return p[0] + ' / ' + p[1]; }
+  function campo(o, v, k) { return (v && v[k] != null) ? v[k] : o[k]; }
+  function razao(f) { var p = (f || '16:9').split(':'); return (+p[0]) / (+p[1]); }
 
-  function emProducao(video) {
-    if (!video.isConnected) return;
-    var aviso = document.createElement('div');
-    aviso.className = 'aviso';
-    aviso.style.aspectRatio = video.style.aspectRatio;
-    aviso.innerHTML = '<div class="pulso"></div><b>Em produção</b><span>volte mais tarde</span>';
-    video.replaceWith(aviso);
+  function meta(o, v, comVersoes) {
+    var m = el('div', 'meta');
+    var audio = campo(o, v, 'audio');
+    if (audio === 'narrado') m.appendChild(el('span', 'selo', 'narrado'));
+    else if (audio) m.appendChild(el('span', null, audio));
+    if (o.data) m.appendChild(el('span', null, data(o.data)));
+    var f = campo(o, v, 'formato'); if (f) m.appendChild(el('span', null, f));
+    if (comVersoes && o.versoes.length > 1) m.appendChild(el('span', null, o.versoes.length + ' versões'));
+    return m;
   }
 
-  function cartao(v) {
-    var card = el('div', 'card');
-    var vertical = /^9:16$|^4:5$/.test(v.formato);
-    var palco = el('div', 'palco' + (vertical ? ' vertical' : ''));
-    var video = document.createElement('video');
-    video.controls = true;
-    video.setAttribute('playsinline', '');
-    video.preload = 'none';
-    video.style.aspectRatio = proporcao(v.formato);
-    if (v.poster) video.poster = v.poster;
-    palco.appendChild(video);
-    card.appendChild(palco);
+  function linha(o) {
+    var b = el('button', 'linha'); b.type = 'button';
+    var mini = el('div', 'mini'), img = el('img');
+    img.src = o.versoes[0].poster; img.alt = ''; img.loading = 'lazy';
+    mini.appendChild(img);
+    var d = campo(o, o.versoes[0], 'duracao'); if (d) mini.appendChild(el('span', 'dur', d));
+    var t = el('div', 't'); t.appendChild(el('h4', null, o.titulo)); t.appendChild(meta(o, null, true));
+    b.appendChild(mini); b.appendChild(t);
+    var s = el('span', 'seta'); s.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>';
+    b.appendChild(s);
+    b.addEventListener('click', function () { abrir(o.id, true); });
+    return b;
+  }
 
-    if (v.emProducao) {
-      card.setAttribute('data-novo', '');
-      video.addEventListener('error', function () { emProducao(video); });
-      fetch(v.arquivo, { method: 'HEAD', cache: 'no-store' })
-        .then(function (r) { if (r.ok) video.src = v.arquivo; else emProducao(video); })
-        .catch(function () { emProducao(video); });
-    } else {
-      video.src = v.arquivo;
+  function destaque(o) {
+    var b = el('button', 'destaque'); b.type = 'button';
+    var capa = el('div', 'capa'), img = el('img');
+    img.src = o.versoes[0].poster; img.alt = '';
+    capa.appendChild(img);
+    capa.appendChild(el('span', 'novo', 'Mais recente'));
+    var play = el('span', 'play');
+    play.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Assistir · ' + (campo(o, o.versoes[0], 'duracao') || '');
+    capa.appendChild(play);
+    var txt = el('div', 'txt');
+    txt.appendChild(el('h2', null, o.titulo));
+    if (o.resumo) txt.appendChild(el('p', null, o.resumo));
+    txt.appendChild(meta(o, null, true));
+    b.appendChild(capa); b.appendChild(txt);
+    b.addEventListener('click', function () { abrir(o.id, true); });
+    document.getElementById('destaque').appendChild(b);
+  }
+
+  function dimensionar() {
+    if (!atual) return;
+    var r = razao(campo(atual, atual.versoes[versaoAtual], 'formato'));
+    var maxH = Math.max(200, window.innerHeight * (window.innerWidth > window.innerHeight ? .72 : .62));
+    var maxW = Math.min(document.querySelector('.corpo').clientWidth - 32, 1100);
+    var w = Math.min(maxW, maxH * r);
+    video.style.width = Math.round(w) + 'px';
+    video.style.height = Math.round(w / r) + 'px';
+  }
+
+  function trocarVersao(i, manterTempo) {
+    var v = atual.versoes[i], t = video.currentTime, tocando = !video.paused;
+    var mesmaDur = campo(atual, v, 'duracao') === campo(atual, atual.versoes[versaoAtual], 'duracao');
+    versaoAtual = i;
+    video.poster = v.poster || '';
+    video.src = v.arquivo;
+    if (manterTempo && mesmaDur && t > 0) {
+      video.addEventListener('loadedmetadata', function f() { video.removeEventListener('loadedmetadata', f); video.currentTime = t; if (tocando) video.play().catch(function () {}); });
     }
+    Array.prototype.forEach.call(document.querySelectorAll('#versoes button'), function (b, k) { b.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
+    var m = document.getElementById('tela-meta'); m.replaceWith(Object.assign(meta(atual, v, false), { id: 'tela-meta' }));
+    var mm = document.getElementById('tela-meta'); var d = campo(atual, v, 'duracao'); if (d) mm.appendChild(el('span', null, d));
+    document.getElementById('baixar').href = v.arquivo;
+    dimensionar();
+  }
 
-    var info = el('div', 'info');
-    info.appendChild(el('h3', null, v.titulo));
-    var meta = el('div', 'meta');
-    if (v.audio) meta.appendChild(el('span', 'selo' + (v.audio === 'narrado' ? '' : ' mudo'), v.audio));
-    if (v.data) meta.appendChild(el('span', null, data(v.data)));
-    if (v.duracao) meta.appendChild(el('span', null, v.duracao));
-    if (v.formato) meta.appendChild(el('span', null, v.formato));
-    info.appendChild(meta);
-    if (v.credito) info.appendChild(el('p', 'credito', v.credito));
-    card.appendChild(info);
-    return card;
+  function abrir(id, empilhar) {
+    var o = obras.filter(function (x) { return x.id === id; })[0];
+    if (!o) return;
+    atual = o;
+    document.getElementById('tela-titulo').textContent = o.titulo;
+    var vs = document.getElementById('versoes'); vs.textContent = '';
+    if (o.versoes.length > 1) {
+      o.versoes.forEach(function (v, i) {
+        var b = el('button', null, v.rotulo); b.type = 'button';
+        b.addEventListener('click', function () { if (i !== versaoAtual) trocarVersao(i, true); });
+        vs.appendChild(b);
+      });
+    }
+    vs.style.display = o.versoes.length > 1 ? '' : 'none';
+    document.getElementById('tela-resumo').textContent = o.resumo || '';
+    document.getElementById('tela-resumo').style.display = o.resumo ? '' : 'none';
+    document.getElementById('tela-credito').textContent = o.credito || '';
+    document.getElementById('tela-credito').style.display = o.credito ? '' : 'none';
+    var i = obras.indexOf(o);
+    document.getElementById('ant').disabled = i === 0;
+    document.getElementById('prox').disabled = i === obras.length - 1;
+    versaoAtual = 0;
+    trocarVersao(0, false);
+    tela.classList.add('aberta'); document.body.classList.add('travado');
+    document.querySelector('.corpo').scrollTop = 0;
+    if (empilhar) history.pushState({ obra: id }, '', '#' + id);
+    else history.replaceState({ obra: id }, '', '#' + id);
+    document.getElementById('fechar').focus({ preventScroll: true });
+  }
+
+  function fechar() {
+    video.pause(); video.removeAttribute('src'); video.load();
+    tela.classList.remove('aberta'); document.body.classList.remove('travado');
+    atual = null;
+  }
+
+  document.getElementById('fechar').addEventListener('click', function () {
+    if (history.state && history.state.obra) history.back(); else { fechar(); history.replaceState(null, '', location.pathname); }
+  });
+  document.getElementById('ant').addEventListener('click', function () { var i = obras.indexOf(atual); if (i > 0) abrir(obras[i - 1].id, false); });
+  document.getElementById('prox').addEventListener('click', function () { var i = obras.indexOf(atual); if (i < obras.length - 1) abrir(obras[i + 1].id, false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && atual) document.getElementById('fechar').click(); });
+  window.addEventListener('popstate', function () {
+    var id = (location.hash || '').slice(1);
+    if (obras.some(function (o) { return o.id === id; })) abrir(id, false); else if (atual) fechar();
+  });
+  window.addEventListener('resize', dimensionar);
+
+  function espiar(secoes) {
+    var links = {};
+    Array.prototype.forEach.call(document.querySelectorAll('#nav a'), function (a) { links[a.getAttribute('href').slice(1)] = a; });
+    var ultimo = null;
+    function marcar() {
+      var ativo = secoes[0], topo = 80;
+      secoes.forEach(function (s) { if (s.getBoundingClientRect().top - topo <= 0) ativo = s; });
+      if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 4) ativo = secoes[secoes.length - 1];
+      if (ativo === ultimo) return;
+      ultimo = ativo;
+      Object.keys(links).forEach(function (k) { links[k].classList.toggle('ativo', k === ativo.id); });
+      var a = links[ativo.id]; if (a) a.parentNode.scrollLeft = a.offsetLeft - 16;
+    }
+    window.addEventListener('scroll', marcar, { passive: true });
+    marcar();
   }
 
   fetch('videos.json', { cache: 'no-cache' })
     .then(function (r) { return r.json(); })
     .then(function (dados) {
-      var lista = document.getElementById('lista');
-      var nav = document.getElementById('nav');
+      var lista = document.getElementById('lista'), nav = document.getElementById('nav'), secs = [];
       lista.textContent = '';
       dados.secoes.forEach(function (s) {
-        var itens = dados.videos.filter(function (v) { return v.secao === s.id; });
+        var itens = dados.obras.filter(function (o) { return o.secao === s.id; });
         if (!itens.length) return;
-        var sec = el('section'); sec.id = s.id;
-        var h2 = el('h2', null, s.titulo);
-        h2.appendChild(el('span', 'n', String(itens.length)));
-        sec.appendChild(h2);
-        itens.forEach(function (v) { sec.appendChild(cartao(v)); });
-        lista.appendChild(sec);
-        var a = el('a', null, s.titulo); a.href = '#' + s.id;
+        itens.forEach(function (o) { obras.push(o); });
+        var sec = el('section'); sec.id = 's-' + s.id;
+        sec.appendChild(el('h3', 'sec', s.titulo));
+        itens.forEach(function (o) { sec.appendChild(linha(o)); });
+        lista.appendChild(sec); secs.push(sec);
+        var a = el('a', null, s.titulo); a.href = '#s-' + s.id; a.appendChild(el('b', null, String(itens.length)));
+        a.addEventListener('click', function (e) { e.preventDefault(); sec.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); });
         nav.appendChild(a);
       });
+      var recente = dados.obras.slice().sort(function (a, b) { return (b.data || '').localeCompare(a.data || ''); })[0];
+      if (recente) destaque(recente);
+      espiar(secs);
+      var id = (location.hash || '').slice(1);
+      if (obras.some(function (o) { return o.id === id; })) { history.replaceState(null, '', location.pathname); abrir(id, true); }
     })
     .catch(function () {
       document.getElementById('lista').innerHTML = '<p class="erro">Não foi possível carregar a lista. Recarregue a página.</p>';
