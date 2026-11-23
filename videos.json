@@ -30,12 +30,7 @@
       "credito": "Música: 'Cinematic Time Lapse' by Lexin_Music (Pixabay). Narração: ElevenLabs.",
       "versoes": [
         {
-          "rotulo": "Com legenda",
-          "arquivo": "videos/orbit-institucional_legenda.mp4",
-          "poster": "posters/orbit-institucional_legenda.jpg"
-        },
-        {
-          "rotulo": "Sem legenda",
+          "rotulo": "Versão final",
           "arquivo": "videos/orbit-institucional.mp4",
           "poster": "posters/orbit-institucional.jpg"
         }
