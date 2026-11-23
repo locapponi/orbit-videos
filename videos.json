@@ -1,9 +1,21 @@
 {
   "secoes": [
-    { "id": "marca", "titulo": "Filmes de marca" },
-    { "id": "produto", "titulo": "Produto" },
-    { "id": "lancamentos", "titulo": "Lançamentos" },
-    { "id": "teasers", "titulo": "Teasers" }
+    {
+      "id": "marca",
+      "titulo": "Filmes de marca"
+    },
+    {
+      "id": "produto",
+      "titulo": "Produto"
+    },
+    {
+      "id": "lancamentos",
+      "titulo": "Lançamentos"
+    },
+    {
+      "id": "teasers",
+      "titulo": "Teasers"
+    }
   ],
   "obras": [
     {
@@ -11,14 +23,22 @@
       "titulo": "Institucional",
       "resumo": "Filmagem real e o produto juntos: a correria, a pergunta à Orbit e o tempo de volta.",
       "secao": "marca",
-      "data": "2026-11-21",
-      "duracao": "0:40",
+      "data": "2026-11-23",
+      "duracao": "0:43",
       "formato": "4:3",
       "audio": "narrado",
-      "credito": "Música: 'With These Hands' by Scott Buckley - released under CC-BY 4.0. www.scottbuckley.com.au",
+      "credito": "Música: 'Cinematic Time Lapse' by Lexin_Music (Pixabay). Narração: ElevenLabs.",
       "versoes": [
-        { "rotulo": "Com legenda", "arquivo": "videos/orbit-institucional_legenda.mp4", "poster": "posters/orbit-institucional_legenda.jpg" },
-        { "rotulo": "Sem legenda", "arquivo": "videos/orbit-institucional.mp4", "poster": "posters/orbit-institucional.jpg" }
+        {
+          "rotulo": "Com legenda",
+          "arquivo": "videos/orbit-institucional_legenda.mp4",
+          "poster": "posters/orbit-institucional_legenda.jpg"
+        },
+        {
+          "rotulo": "Sem legenda",
+          "arquivo": "videos/orbit-institucional.mp4",
+          "poster": "posters/orbit-institucional.jpg"
+        }
       ]
     },
     {
@@ -32,8 +52,16 @@
       "audio": "narrado",
       "credito": "Música: 'With These Hands' by Scott Buckley - released under CC-BY 4.0. www.scottbuckley.com.au",
       "versoes": [
-        { "rotulo": "Com legenda", "arquivo": "videos/orbit-filme-conceitual_legenda.mp4", "poster": "posters/orbit-filme-conceitual_legenda.jpg" },
-        { "rotulo": "Sem texto", "arquivo": "videos/orbit-filme-conceitual.mp4", "poster": "posters/orbit-filme-conceitual.jpg" }
+        {
+          "rotulo": "Com legenda",
+          "arquivo": "videos/orbit-filme-conceitual_legenda.mp4",
+          "poster": "posters/orbit-filme-conceitual_legenda.jpg"
+        },
+        {
+          "rotulo": "Sem texto",
+          "arquivo": "videos/orbit-filme-conceitual.mp4",
+          "poster": "posters/orbit-filme-conceitual.jpg"
+        }
       ]
     },
     {
@@ -44,8 +72,18 @@
       "duracao": "1:06",
       "formato": "16:9",
       "versoes": [
-        { "rotulo": "Narrado", "audio": "narrado", "arquivo": "videos/orbit-studio-eixo_narracao.mp4", "poster": "posters/orbit-studio-eixo_narracao.jpg" },
-        { "rotulo": "Sem voz", "audio": "sem voz", "arquivo": "videos/orbit-studio-eixo.mp4", "poster": "posters/orbit-studio-eixo.jpg" }
+        {
+          "rotulo": "Narrado",
+          "audio": "narrado",
+          "arquivo": "videos/orbit-studio-eixo_narracao.mp4",
+          "poster": "posters/orbit-studio-eixo_narracao.jpg"
+        },
+        {
+          "rotulo": "Sem voz",
+          "audio": "sem voz",
+          "arquivo": "videos/orbit-studio-eixo.mp4",
+          "poster": "posters/orbit-studio-eixo.jpg"
+        }
       ]
     },
     {
@@ -56,8 +94,18 @@
       "duracao": "1:34",
       "formato": "16:9",
       "versoes": [
-        { "rotulo": "Narrado", "audio": "narrado", "arquivo": "videos/orbit-sistema-v3_narracao.mp4", "poster": "posters/orbit-sistema-v3_narracao.jpg" },
-        { "rotulo": "Sem voz", "audio": "sem voz", "arquivo": "videos/orbit-sistema-v3.mp4", "poster": "posters/orbit-sistema-v3.jpg" }
+        {
+          "rotulo": "Narrado",
+          "audio": "narrado",
+          "arquivo": "videos/orbit-sistema-v3_narracao.mp4",
+          "poster": "posters/orbit-sistema-v3_narracao.jpg"
+        },
+        {
+          "rotulo": "Sem voz",
+          "audio": "sem voz",
+          "arquivo": "videos/orbit-sistema-v3.mp4",
+          "poster": "posters/orbit-sistema-v3.jpg"
+        }
       ]
     },
     {
@@ -67,8 +115,20 @@
       "data": "2026-11-13",
       "audio": "sem voz",
       "versoes": [
-        { "rotulo": "Cabeçalho", "formato": "21:9", "duracao": "0:29", "arquivo": "videos/orbit-appstore-cabecalho.mp4", "poster": "posters/orbit-appstore-cabecalho.jpg" },
-        { "rotulo": "Resultado de busca", "formato": "3:2", "duracao": "0:07", "arquivo": "videos/orbit-appstore-busca.mp4", "poster": "posters/orbit-appstore-busca.jpg" }
+        {
+          "rotulo": "Cabeçalho",
+          "formato": "21:9",
+          "duracao": "0:29",
+          "arquivo": "videos/orbit-appstore-cabecalho.mp4",
+          "poster": "posters/orbit-appstore-cabecalho.jpg"
+        },
+        {
+          "rotulo": "Resultado de busca",
+          "formato": "3:2",
+          "duracao": "0:07",
+          "arquivo": "videos/orbit-appstore-busca.mp4",
+          "poster": "posters/orbit-appstore-busca.jpg"
+        }
       ]
     },
     {
@@ -80,8 +140,18 @@
       "formato": "16:9",
       "credito": "Música: 'With These Hands' by Scott Buckley (CC BY 4.0) · scottbuckley.com.au",
       "versoes": [
-        { "rotulo": "Narrado", "audio": "narrado", "arquivo": "videos/orbit-temas-plugins_narracao.mp4", "poster": "posters/orbit-temas-plugins_narracao.jpg" },
-        { "rotulo": "Sem voz", "audio": "sem voz", "arquivo": "videos/orbit-temas-plugins.mp4", "poster": "posters/orbit-temas-plugins.jpg" }
+        {
+          "rotulo": "Narrado",
+          "audio": "narrado",
+          "arquivo": "videos/orbit-temas-plugins_narracao.mp4",
+          "poster": "posters/orbit-temas-plugins_narracao.jpg"
+        },
+        {
+          "rotulo": "Sem voz",
+          "audio": "sem voz",
+          "arquivo": "videos/orbit-temas-plugins.mp4",
+          "poster": "posters/orbit-temas-plugins.jpg"
+        }
       ]
     },
     {
@@ -94,7 +164,11 @@
       "audio": "sem voz",
       "credito": "Música: 'With These Hands' by Scott Buckley (CC BY 4.0) · scottbuckley.com.au",
       "versoes": [
-        { "rotulo": "Sem voz", "arquivo": "videos/orbit-do-seu-jeito.mp4", "poster": "posters/orbit-do-seu-jeito.jpg" }
+        {
+          "rotulo": "Sem voz",
+          "arquivo": "videos/orbit-do-seu-jeito.mp4",
+          "poster": "posters/orbit-do-seu-jeito.jpg"
+        }
       ]
     },
     {
@@ -105,8 +179,18 @@
       "duracao": "0:38",
       "audio": "sem voz",
       "versoes": [
-        { "rotulo": "Horizontal", "formato": "16:9", "arquivo": "videos/orbit-teaser-dia_16x9.mp4", "poster": "posters/orbit-teaser-dia_16x9.jpg" },
-        { "rotulo": "Vertical", "formato": "9:16", "arquivo": "videos/orbit-teaser-dia_9x16.mp4", "poster": "posters/orbit-teaser-dia_9x16.jpg" }
+        {
+          "rotulo": "Horizontal",
+          "formato": "16:9",
+          "arquivo": "videos/orbit-teaser-dia_16x9.mp4",
+          "poster": "posters/orbit-teaser-dia_16x9.jpg"
+        },
+        {
+          "rotulo": "Vertical",
+          "formato": "9:16",
+          "arquivo": "videos/orbit-teaser-dia_9x16.mp4",
+          "poster": "posters/orbit-teaser-dia_9x16.jpg"
+        }
       ]
     },
     {
@@ -118,7 +202,11 @@
       "formato": "16:9",
       "audio": "sem voz",
       "versoes": [
-        { "rotulo": "Horizontal", "arquivo": "videos/orbit-teaser-ata.mp4", "poster": "posters/orbit-teaser-ata.jpg" }
+        {
+          "rotulo": "Horizontal",
+          "arquivo": "videos/orbit-teaser-ata.mp4",
+          "poster": "posters/orbit-teaser-ata.jpg"
+        }
       ]
     }
   ]
