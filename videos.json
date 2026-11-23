@@ -208,6 +208,52 @@
           "poster": "posters/orbit-teaser-ata.jpg"
         }
       ]
+    },
+    {
+      "id": "teaser-restaurante",
+      "titulo": "Teaser · Restaurante",
+      "secao": "teasers",
+      "data": "2026-11-16",
+      "duracao": "1:08",
+      "formato": "16:9",
+      "versoes": [
+        {
+          "rotulo": "Horizontal",
+          "arquivo": "videos/orbit-teaser-restaurante.mp4",
+          "poster": "posters/orbit-teaser-restaurante.jpg"
+        }
+      ]
+    },
+    {
+      "id": "teaser-sindico",
+      "titulo": "Teaser · Síndico",
+      "secao": "teasers",
+      "data": "2026-11-11",
+      "duracao": "1:10",
+      "formato": "16:9",
+      "versoes": [
+        {
+          "rotulo": "Horizontal",
+          "arquivo": "videos/orbit-teaser-sindico.mp4",
+          "poster": "posters/orbit-teaser-sindico.jpg"
+        }
+      ]
+    },
+    {
+      "id": "teaser-condominio",
+      "titulo": "Teaser · Condomínio",
+      "secao": "teasers",
+      "data": "2026-11-11",
+      "duracao": "0:31",
+      "formato": "16:9",
+      "audio": "sem voz",
+      "versoes": [
+        {
+          "rotulo": "Horizontal",
+          "arquivo": "videos/orbit-teaser-condominio.mp4",
+          "poster": "posters/orbit-teaser-condominio.jpg"
+        }
+      ]
     }
   ]
 }
